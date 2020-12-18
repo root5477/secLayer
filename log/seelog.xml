@@ -1,0 +1,25 @@
+<seelog  type="asynctimer" asyncinterval="5000000" minlevel="trace" maxlevel="critical">
+	<outputs formatid="main">
+        <!-- print to console 
+		<filter levels="trace,debug,info,warn,error,critical">
+			<console />
+        </filter> 
+        -->
+
+		<filter levels="trace, debug, info, warn, error, critical">
+			<buffered size="10000" flushperiod="1000">
+				<rollingfile type="size" filename="./log/log/debug.log" maxsize="1000000000" maxrolls="10"/>
+			</buffered>
+		</filter>
+
+        <filter levels="error, critical">
+            <buffered size="10000" flushperiod="1000">
+                <rollingfile type="size" filename="./log/log/error.log" maxsize="1000000000" maxrolls="10"/>
+            </buffered>
+        </filter>
+    </outputs>
+	<formats>
+		<format id="main" format="[%LEVEL] %Date(2006-01-02 15:04:05.000) %File:%Line %ExShortFunc: %Msg%n"/>
+	</formats>
+</seelog>
+

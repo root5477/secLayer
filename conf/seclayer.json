@@ -1,0 +1,48 @@
+{
+  "server": {
+    "addr": "127.0.0.1",
+    "port": 8092
+  },
+  "db": {
+    "addr": "127.0.0.1",
+    "port": 3306,
+    "user": "root",
+    "pass_word": "hanitt5477",
+    "database": "codecov"
+  },
+  "redis_proxy2layer": {
+    "addr": "127.0.0.1:6379",
+    "pwd": "",
+    "max_idle": 8,
+    "max_active": 0,
+    "idle_timeout": 300,
+    "db_option": 3,
+    "proxy_2_layer_queue_name":"proxy2layer"
+  },
+  "redis_layer2proxy": {
+    "addr": "127.0.0.1:6379",
+    "pwd": "",
+    "max_idle": 8,
+    "max_active": 0,
+    "idle_timeout": 300,
+    "db_option": 2
+  },
+  "etcd": {
+    "addr": "127.0.0.1:2379",
+    "pwd": "",
+    "time_out": 5,
+    "sec_key": "sec_info"
+  },
+  "log": {
+    "min_level": "debug"
+  },
+  "write_goroutine_num": 20,
+  "read_goroutine_num": 20,
+  "handle_goroutine_num": 20,
+  "read_2_handle_chan_size": 100000,
+  "handle_2_write_chan_size": 100000,
+  "max_req_wait_timeout": 30,
+  "send_to_write_chan_time_out":100,
+  "send_to_handle_chan_time_out":100,
+  "sec_kill_token_pass_word":"zhe-ge-mi-yao-fei-chang-zhuan-ye"
+}
