@@ -85,7 +85,7 @@ func HandleReader()  {
 	for {
 		conn := conf.SecLayerContextInstance.Proxy2LayerRedisPool.Get()
 		for {
-			data, err := redis.String(conn.Do("BLPOP", conf.SecLayerConf.RedisProxy2Layer.Proxy2LayerQueueName, 0))
+			data, err := redis.String(conn.Do("BRPOP", conf.SecLayerConf.RedisProxy2Layer.Proxy2LayerQueueName, 0))
 			if err != nil {
 				log.Errorf("pop from sec_queue failed, err:%v", err)
 				break
@@ -132,7 +132,7 @@ func SendToRedis(res *conf.SecResponse) (err error) {
 	if err != nil {
 		return
 	}
-	_, err = redis.String(conn.Do("rpush", "layer2proxy_queue", data))
+	_, err = redis.String(conn.Do("rpush", conf.SecLayerConf.RedisLayer2Proxy.Layer2ProxyQueueName, data))
 	if err != nil {
 		log.Errorf("rpush to redis layer2proxy_queue failed, err is:%v, data:%v", err, data)
 		return
@@ -155,6 +155,7 @@ func HandleUser()  {
 		timer := time.NewTicker(time.Millisecond * time.Duration(conf.SecLayerConf.SendToWriteChanTimeOut))
 		select {
 		case conf.SecLayerContextInstance.Handle2WriteChan <- res:
+
 		case <- timer.C:
 			log.Warnf("send to resp chan timeout, res:%v", res)
 			break

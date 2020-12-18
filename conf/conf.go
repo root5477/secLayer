@@ -55,12 +55,13 @@ type RedisProxy2Layer struct {
 
 //接入层redis -> 业务逻辑
 type RedisLayer2Proxy struct {
-	Addr        string `json:"addr"`
-	Pwd         string `json:"pwd"`
-	MaxIdle     int    `json:"max_idle"`
-	MaxActive   int    `json:"max_active"`
-	IdleTimeout int    `json:"idle_timeout"`
-	DbOption    int    `json:"db_option"`
+	Addr                 string `json:"addr"`
+	Pwd                  string `json:"pwd"`
+	MaxIdle              int    `json:"max_idle"`
+	MaxActive            int    `json:"max_active"`
+	IdleTimeout          int    `json:"idle_timeout"`
+	DbOption             int    `json:"db_option"`
+	Layer2ProxyQueueName string `json:"layer_2_proxy_queue_name"`
 }
 
 type Etcd struct {
@@ -75,12 +76,12 @@ type Log struct {
 }
 
 type SecLayerConfig struct {
-	Server                  `json:"server"`
-	Db                      `json:"db"`
-	RedisProxy2Layer        `json:"redis_proxy2layer"`
-	RedisLayer2Proxy        `json:"redis_layer2proxy"`
-	Etcd                    `json:"etcd"`
-	Log                     `json:"log"`
+	Server                        `json:"server"`
+	Db                            `json:"db"`
+	RedisProxy2Layer              `json:"redis_proxy2layer"`
+	RedisLayer2Proxy              `json:"redis_layer2proxy"`
+	Etcd                          `json:"etcd"`
+	Log                           `json:"log"`
 	WriteGoroutineNum       int   `json:"write_goroutine_num"`
 	ReadGoroutineNum        int   `json:"read_goroutine_num"`
 	HandleGoroutineNum      int   `json:"handle_goroutine_num"`

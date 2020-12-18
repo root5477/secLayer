@@ -27,6 +27,7 @@ func InitSecLayer(secLayerconf *conf.SecLayerConfig) (err error) {
 	err = InitRedis(secLayerconf)
 	if err != nil {
 		log.Errorf("init redis failed, err:%v", err)
+		fmt.Println("init redis failed, err:", err)
 		return
 	}
 

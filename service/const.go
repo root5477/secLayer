@@ -1,14 +1,14 @@
 package service
 
 const (
-	ErrServiceBusy       = 1001
-	ErrSecKillSucc       = 1002
-	ErrNotFoundProductId = 1003
-	ErrSoldOut           = 1004
-	ErrRetry             = 1005
-	ErrAlreadyBuyLimit = 1006
+	ErrServiceBusy       = 2001
+	ErrSecKillSucc       = 2002
+	ErrNotFoundProductId = 2003
+	ErrSoldOut           = 2004
+	ErrRetry             = 2005
+	ErrAlreadyBuyLimit   = 2006
 )
 
 const (
-	ProductStatusSoldOut = 2001
+	ProductStatusSoldOut = 3001
 )
